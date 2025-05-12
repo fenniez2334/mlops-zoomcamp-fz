@@ -1,0 +1,78 @@
+# 1.2.1 setting github codespaces as instance
+# 1.2.2 setting AWS EC2 instance
+# ssh to local using:
+ ssh -i ~/.ssh/mlops.pem ubuntu@3.22.181.75
+# add the following in the config file:
+Host mlops-zoomcamp
+    Hostname  3.22.181.75  (copy the public IP)
+    User ubuntu
+    IdentityFile ~/.ssh/mlops.pem
+    StrictHostKeyChecking no
+    
+Host blockchain-dev
+    HostName 34.45.146.217
+    User fenniez
+    IdentityFile ~/.ssh/gcp
+
+# Then, you can ssh to the instance using:
+ssh mlops-zoomcamp
+
+# Recommended development environment: Linux
+# Step 1: Download and install the Anaconda distribution of Python
+wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
+bash Anaconda3-2022.05-Linux-x86_64.sh
+
+# Step 2: Update existing packages
+sudo apt update
+
+# Step 3: Install Docker and Docker Compose
+# docker
+sudo apt install docker.io
+# docker-compose github repo --> release page --> download the latest version of docker-compose
+# find linusx x86_64 version --> https://github.com/docker/compose/releases/download/v2.36.0/docker-compose-linux-x86_64
+mkdir soft
+cd soft
+wget https://github.com/docker/compose/releases/download/v2.36.0/docker-compose-linux-x86_64 -O docker-compose
+# make it executable
+chmod +x docker-compose
+# modify path variable
+echo 'export PATH="$HOME/soft:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+# or use
+nano ~/.bashrc
+export PATH="$HOME/soft:$PATH"
+source ~/.bashrc
+# check if docker is installed
+which docker-compose
+docker-compose --version
+
+# To run docker without sudo:
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+# Set up Docker's apt repository.
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+# Install the Docker packages.
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+
+
+# Git clone the course repo
+git clone https://github.com/DataTalksClub/mlops-zoomcamp.git
+
+
+
+
