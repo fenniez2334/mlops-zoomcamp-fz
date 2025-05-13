@@ -74,5 +74,10 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 git clone https://github.com/DataTalksClub/mlops-zoomcamp.git
 
 
+# download taxi data
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2021-01.parquet
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2021-02.parquet
+
+
 
 
