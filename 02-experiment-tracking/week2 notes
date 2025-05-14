@@ -7,3 +7,4 @@ pip install -r requirements.txt
 # setup backend database for mlflow
 mlflow ui --backend-store-uri sqlite:///mlflow.db
 # open http://127.0.0.1:5000 in browser
+# run jupyter notebook to test the code
