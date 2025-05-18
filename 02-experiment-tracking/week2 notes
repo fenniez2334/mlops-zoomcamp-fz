@@ -30,3 +30,10 @@ mlflow.set_experiment("nyc-taxi-experiment")
 # Step 6: select best one
 
 # Step 7: autolog
+
+# model management: Step 8: logging models in mlflow
+# 2 options: 
+# 1. log model as an artifact
+mlflow.log_artifact("model.pkl", artifact_path="models/")
+# 2. log model using the method log_model
+mlflow.<framework>.log_model(model,  artifact_path="models/")
