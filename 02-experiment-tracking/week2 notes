@@ -1,10 +1,32 @@
+# Step 1: Prepare the local environment
 # create environment
 conda create -n exp-tracking-env python=3.9
 # activate environment
 conda activate exp-tracking-env
 # once activated env, install required packages
 pip install -r requirements.txt
+
+# Step 2: Install MLflow client and configure a backend
+# cd to correct directory, otherwise the mlflow server will not work
+cd 02-experiment-tracking
 # setup backend database for mlflow
 mlflow ui --backend-store-uri sqlite:///mlflow.db
 # open http://127.0.0.1:5000 in browser
 # run jupyter notebook to test the code
+
+# in the ipynb file: change the kernel to the created environment exp-tracking-env
+# make sure to install the jupyter extension in VSCode, need reflesh the window to activate
+# you will see the kernel changed to exp-tracking-env at the top right corner
+
+# Step 3: add mlflow to existing notebook, log the predictions, show it in MLflow UI
+import mlflow
+mlflow.set_tracking_uri("sqlite:///mlflow.db")
+mlflow.set_experiment("nyc-taxi-experiment")
+
+# Step 4: add parameter tuning to the notebook
+
+# Step 5: how it works in mlflow
+
+# Step 6: select best one
+
+# Step 7: autolog
