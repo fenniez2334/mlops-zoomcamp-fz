@@ -37,3 +37,18 @@ mlflow.set_experiment("nyc-taxi-experiment")
 mlflow.log_artifact("model.pkl", artifact_path="models/")
 # 2. log model using the method log_model
 mlflow.<framework>.log_model(model,  artifact_path="models/")
+
+
+
+### Homework:
+# Tip: go to 02-experiment-tracking/homework/ folder before executing the command 
+# and change the value of <TAXI_DATA_FOLDER> to the location where you saved the data.
+python preprocess_data.py --raw_data_path <TAXI_DATA_FOLDER> --dest_path ./output
+
+python preprocess_data.py --raw_data_path ../data --dest_path ./output
+
+python train.py
+
+python hpo.py
+
+python register_model.py --top_n 1
