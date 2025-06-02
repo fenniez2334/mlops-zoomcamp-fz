@@ -7,3 +7,7 @@ mkdir -p ./dags ./logs ./plugins ./config
 echo -e "AIRFLOW_UID=$(id -u)" > .env
 curl -LfO 'https://airflow.apache.org/docs/apache-airflow/3.0.1/docker-compose.yaml'
 
+# go to https://airflow.apache.org/docs/docker-stack/build.html how to build image(dockerfile)
+FROM apache/airflow:3.0.1
+COPY requirements.txt /
+RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" -r /requirements.txt
