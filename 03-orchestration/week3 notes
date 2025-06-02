@@ -11,3 +11,7 @@ curl -LfO 'https://airflow.apache.org/docs/apache-airflow/3.0.1/docker-compose.y
 FROM apache/airflow:3.0.1
 COPY requirements.txt /
 RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" -r /requirements.txt
+
+# once yaml file is ready
+docker compose up -d
+
