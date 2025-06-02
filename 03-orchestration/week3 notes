@@ -1,0 +1,9 @@
+## airflow ##
+# airflow docker compose setup
+https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
+
+# under the airflow directory, make these directories
+mkdir -p ./dags ./logs ./plugins ./config
+echo -e "AIRFLOW_UID=$(id -u)" > .env
+curl -LfO 'https://airflow.apache.org/docs/apache-airflow/3.0.1/docker-compose.yaml'
+
