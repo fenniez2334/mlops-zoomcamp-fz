@@ -46,8 +46,8 @@ def run_train(data_path: str):
 
 
 
-if __name__ == '__main__':
-    run_train()
+# if __name__ == '__main__':
+#     run_train()
 
 
 def train_main():

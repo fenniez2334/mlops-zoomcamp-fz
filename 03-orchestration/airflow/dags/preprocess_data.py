@@ -79,8 +79,8 @@ def run_data_prep(raw_data_path: str, dest_path: str, dataset: str = "green"):
     dump_pickle((X_test, y_test), os.path.join(dest_path, "test.pkl"))
 
 
-if __name__ == '__main__':
-    run_data_prep()
+# if __name__ == '__main__':
+#     run_data_prep()
 
 def preprocess_main():
     raw_data_path = os.environ.get("RAW_DATA_PATH", "/opt/airflow/data")

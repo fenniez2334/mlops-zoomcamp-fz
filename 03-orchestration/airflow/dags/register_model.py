@@ -106,8 +106,8 @@ def run_register_model(data_path: str, top_n: int):
     print(f"Registered model from run ID {best_run.info.run_id} with test RMSE: {best_run.data.metrics['test_rmse']:.3f}")
 
 
-if __name__ == '__main__':
-    run_register_model()
+# if __name__ == '__main__':
+#     run_register_model()
 
 
 def register_model_main():
