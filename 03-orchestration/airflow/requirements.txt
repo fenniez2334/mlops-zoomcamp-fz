@@ -1,3 +1,6 @@
 pandas
 pyarrow
-apache-airflow[google]
+mlflow
+scikit-learn
+numpy
+click
