@@ -37,3 +37,16 @@ pip install "prefect>=2.0"
 cd 3.3
 python orchestrate.py
 # check directory is correct otherwise it can't find the data
+
+# 3.4 deploying your workflow
+prefect init
+# Created project in /workspaces/mlops-zoomcamp-fz/03-orchestration/prefect with the following new files:
+# .prefectignore
+# prefect.yaml
+# use UI to set work pools
+# UI --> Work Pools --> choose infra (eg: process) --> details: name 
+
+prefect deploy --help
+prefect deploy 3.4/orchestrate.py:main_flow -n taxi1 -p zoomcamp_mlops
+# to execute the flow from this deployment, start a worker that pulls work from the work pool
+prefect worker start -p zoomcamp_mlops
