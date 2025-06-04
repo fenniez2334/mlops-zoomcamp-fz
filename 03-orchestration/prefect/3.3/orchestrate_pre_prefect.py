@@ -5,7 +5,7 @@ import numpy as np
 import scipy
 import sklearn
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import root_mean_squared_error
 import mlflow
 import xgboost as xgb
 from prefect import flow, task
@@ -94,7 +94,7 @@ def train_best_model(
         )
 
         y_pred = booster.predict(valid)
-        rmse = mean_squared_error(y_val, y_pred, squared=False)
+        rmse = root_mean_squared_error(y_val, y_pred, squared=False)
         mlflow.log_metric("rmse", rmse)
 
         pathlib.Path("models").mkdir(exist_ok=True)

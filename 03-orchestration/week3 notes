@@ -32,3 +32,8 @@ pip install -r requirements.txt
 prefect server start
 # if failed to find prefect, run this command
 pip install "prefect>=2.0"
+
+# test python code
+cd 3.3
+python orchestrate.py
+# check directory is correct otherwise it can't find the data
