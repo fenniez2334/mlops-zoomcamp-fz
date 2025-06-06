@@ -1,0 +1,32 @@
+## Deploying a model as a web-service
+
+* Creating a virtual environment with Pipenv
+* Creating a script for predictiong 
+* Putting the script into a Flask app
+* Packaging the app to Docker
+
+
+```bash
+docker build -t ride-duration-prediction-service:v1 .
+```
+
+```bash
+docker run -it --rm -p 9696:9696  ride-duration-prediction-service:v1
+```
+
+## we get the lin_reg.bin in week1 by 
+with open('models/lin_reg.bin', 'wb') as f_out:
+    pickle.dump((dv, lr), f_out)
+
+
+# locate to directory
+cd 04-deployment
+cd web-service
+
+pip freeze | grep scikit-learn
+# creating virtual environment, it contains libaraies with specific application
+pipenv install scikit-learn==1.0.2 flask --python=3.9
+# to activate this virtual env, run
+pipenv shell
+# change the prompt
+PS1="> "
