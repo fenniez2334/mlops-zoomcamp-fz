@@ -2,6 +2,7 @@ import pickle
 
 from flask import Flask, request, jsonify
 
+# open the model for reading
 with open('lin_reg.bin', 'rb') as f_in:
     (dv, model) = pickle.load(f_in)
 
@@ -21,6 +22,9 @@ def predict(features):
 
 app = Flask('duration-prediction')
 
+@app.route('/')
+def home():
+    return "Duration Prediction API is running!"
 
 @app.route('/predict', methods=['POST'])
 def predict_endpoint():
@@ -35,6 +39,7 @@ def predict_endpoint():
 
     return jsonify(result)
 
-
+# run the application
+# 0.0.0.0 means the local host
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=9696)

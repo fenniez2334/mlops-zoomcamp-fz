@@ -25,8 +25,38 @@ cd web-service
 
 pip freeze | grep scikit-learn
 # creating virtual environment, it contains libaraies with specific application
-pipenv install scikit-learn==1.0.2 flask --python=3.9
+pipenv install scikit-learn==1.0.2 flask numpy==1.21.6 --python=3.9
+
 # to activate this virtual env, run
 pipenv shell
 # change the prompt
 PS1="> "
+
+# run Flask app
+python predict.py
+# open another terminal, test predict.py
+python test.py
+
+# Flask is only used for deployment purposes
+# you will get warnings: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+
+# install gunicorn
+pipenv install gunicorn
+
+# instead of flask we use gunicorn to connect to the same application
+gunicorn --bind=0.0.0.0:9696 predict:app
+
+# install the package as a dev dependency
+pipenv install --dev requests
+
+
+# Packaging the app to Docker
+# create the Dockerfile.txt
+<!-- it will use dockerfile to build an image -->
+```bash
+docker build -t ride-duration-prediction-service:v1 .
+```
+<!-- test the docker image -->
+```bash
+docker run -it --rm -p 9696:9696  ride-duration-prediction-service:v1
+```
