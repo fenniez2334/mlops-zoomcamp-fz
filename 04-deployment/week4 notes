@@ -94,3 +94,9 @@ mlflow artifacts download \
     --artifact-path model \
     --dst-path .
 ```
+
+
+## homework
+## Q6
+docker build -t duration-predictor .
+docker run duration-predictor

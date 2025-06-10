@@ -188,6 +188,10 @@ for May 2023?
 ### Question 6 Answer:
 >My answer:
 ```
+docker build -t duration-predictor .
+docker run duration-predictor
+Standard deviation of predicted durations: 1.39
+Mean predicted durations: 0.19
 ```
 
 
