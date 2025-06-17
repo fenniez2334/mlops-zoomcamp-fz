@@ -1,2 +1,21 @@
 # environment setup
 cd 05-monitoring
+mkdir taxi_monitoring
+cd taxi_monitoring
+
+
+# install all the requirements
+pip install -r requirements.txt
+conda activate py11
+
+# start docker compose
+docker compose up --build
+
+
+# free space in codespace
+# Clear the pip and apt caches
+pip cache purge
+sudo apt-get clean
+
+# Remove unused Docker images/containers
+docker system prune -af
