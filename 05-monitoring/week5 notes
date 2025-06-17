@@ -6,10 +6,16 @@ cd taxi_monitoring
 
 # install all the requirements
 pip install -r requirements.txt
-conda activate py11
+
 
 # start docker compose
 docker compose up --build
+
+# grafana password
+# admin/admin
+
+# open another terminal and activate the conda environment
+conda activate py11
 
 
 # free space in codespace
