@@ -25,3 +25,9 @@ sudo apt-get clean
 
 # Remove unused Docker images/containers
 docker system prune -af
+
+
+# 5.3 prepare reference and model
+docker-compose down 
+mkdir models
+mkdir data
